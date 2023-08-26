@@ -9,9 +9,9 @@ interface SnippetCardProps{
   data: {title: string, date:string}
 }
 
-export default function SnippetCard(props:SnippetCardProps) {
+const SnippetCard: React.FC<SnippetCardProps> = (props) => {
   return (
-    <Card variant="outlined" sx={{ width: 320 }}>
+    <Card variant="outlined" sx={{ width: 320, float: 'left' }}>
       <div>
         <Typography level="title-lg">{props.data.title}</Typography>
         <Typography level="body-sm">{props.data.date}</Typography>
@@ -52,3 +52,5 @@ export default function SnippetCard(props:SnippetCardProps) {
     </Card >
   )
 }
+
+export default SnippetCard;

@@ -9,7 +9,7 @@ interface SnippetCardProps{
   data: {title: string, date:string}
 }
 
-const SnippetCard: React.FC<SnippetCardProps> = (props) => {
+export default function SnippetCard(props:SnippetCardProps): JSX.Element {
   return (
     <Card variant="outlined" sx={{ width: 320, float: 'left' }}>
       <div>
@@ -52,5 +52,3 @@ const SnippetCard: React.FC<SnippetCardProps> = (props) => {
     </Card >
   )
 }
-
-export default SnippetCard;

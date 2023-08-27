@@ -4,9 +4,10 @@ import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
+import {DataType} from './types'
 
 interface SnippetCardProps{
-  data: {title: string, date:string}
+  data: DataType
 }
 
 const SnippetCard: React.FC<SnippetCardProps> = (props)=> {

@@ -1,7 +1,8 @@
 import SnippetCard from './SnippetCard'
+import {DataType} from './types'
 
 export default function App() {
-  const data = {
+  const data: DataType ={
     title: 'Title',
     date: 'Aug 26, 2023'
   }

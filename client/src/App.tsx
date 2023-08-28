@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import SnippetCard from './SnippetCard'
+import SnippetCard from './components/SnippetCard'
 import {SnippetType} from './types'
 
 export default function App() {

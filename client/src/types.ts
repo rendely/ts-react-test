@@ -1,4 +1,4 @@
-export interface DataType {
-  title: string;
-  date: string;
+export interface SnippetType {
+  id: number;
+  content: string;
 }

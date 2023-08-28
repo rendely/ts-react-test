@@ -1,14 +1,20 @@
+import { useEffect, useState } from 'react'
 import SnippetCard from './SnippetCard'
-import {DataType} from './types'
+import {SnippetType} from './types'
 
 export default function App() {
-  const data: DataType ={
-    title: 'Title',
-    date: 'Aug 26, 2023'
-  }
+  const [snippets, setSnippets] = useState<SnippetType[]>([])
+
+  useEffect(() => {
+    fetch('/api/snippets')
+    .then(r => r.json())
+    .then(d => setSnippets(d))
+  },[])
+
   return (
     <div className="App">
-      <SnippetCard data={data} />
+      {snippets.map(s => <SnippetCard key={s.id} snippet={s} />)}
+      
     </div>
   );
 }

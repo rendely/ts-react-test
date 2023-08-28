@@ -4,7 +4,7 @@ from models.models import Snippet
 from config import api
 
 
-class Snippet(Resource):
+class Snippets(Resource):
     def get(self):
         snippets = [s.to_dict() for s in Snippet.query.all()]
         return snippets, 200
@@ -16,5 +16,5 @@ class SnippetDetails(Resource):
         return snippet, 200
 
 
-api.add_resource(Snippet, "/api/snippets")
+api.add_resource(Snippets, "/api/snippets")
 api.add_resource(SnippetDetails, "/api/snippets/<int:id>")

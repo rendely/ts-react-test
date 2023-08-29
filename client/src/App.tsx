@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import SnippetCard from './components/SnippetCard'
 import { SnippetType, UserType } from './types'
-
 import TestForm from './components/TestForm'
-import { text } from 'stream/consumers'
 
 export default function App() {
   const [snippets, setSnippets] = useState<SnippetType[]>([])
@@ -11,24 +9,22 @@ export default function App() {
   // holds users added by the form - sk
   const [users, setUsers] = useState<UserType[]>([])
 
-
   useEffect(() => {
     fetch('/api/snippets')
       .then(r => r.json())
       .then(d => setSnippets(d))
   }, [])
 
-  //Adds newly added user to stateful users object - sk
-  const handleAddNewUser = (name: string, email: string ) => {
-    const newUser = { id: Math.random(), name: name, email:email}
+  //Adds newly added user to stateful users object => updated to use UserType
+  const handleAddNewUser = (newUser: UserType) => {
     setUsers((prevUsers) => [...prevUsers, newUser])
-  }
+  };
 
   const filteredSnippets = snippets.filter(s => s.content.match(filter))
   return (
     <div className="App">
-      {/* Pass function as prop for parent to have access to values - sk */}
-      <TestForm addUser={handleAddNewUser}/>
+      {/* Pass function as prop for parent to have access to values */}
+      <TestForm addUser={handleAddNewUser} />
       <form>
         <label>Search:</label>
         {filteredSnippets.length} / {snippets.length} match

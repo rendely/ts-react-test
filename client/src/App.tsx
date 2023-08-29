@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import SnippetCard from './components/SnippetCard'
 import { SnippetType } from './types'
-//imported by JSmith, 08/29/23
+
 import TestForm from './components/TestForm'
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   const filteredSnippets = snippets.filter(s => s.content.match(filter))
   return (
     <div className="App">
-     */Test Form added by JS 08/29/23/*
+  
       <TestForm/>
       <form>
         <label>Search:</label>

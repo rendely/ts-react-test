@@ -6,19 +6,16 @@
 
 import React from "react";
 import { Formik, Field, Form } from "formik";
+import {UserType} from '../types';
 
-interface User {
-  name: string;
-  email: string;
-}
 
 const TestForm: React.FC = () => {
-  const initialValues: User = {
+  const initialValues: UserType = {
     name: "",
     email: "",
   };
 
-  const handleSubmit = (values: User) => {
+  const handleSubmit = (values: UserType) => {
     console.log("Form submitted with values:", values);
   };
 

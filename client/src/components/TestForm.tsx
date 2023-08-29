@@ -4,10 +4,12 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import {UserType} from '../types';
 
+//Instanciate props interface for TestForm
 interface TestFormProps {
   addUser : (name: string, email: string) => void
 }
 
+//Use TestFormProps interface and props
 const TestForm: React.FC<TestFormProps> = props => {
   const initialValues: UserType = {
     name: "",

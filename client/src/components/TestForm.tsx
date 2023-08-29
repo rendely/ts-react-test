@@ -4,8 +4,11 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import {UserType} from '../types';
 
+interface TestFormProps {
+  addUser : (name: string, email: string) => void
+}
 
-const TestForm: React.FC = () => {
+const TestForm: React.FC<TestFormProps> = props => {
   const initialValues: UserType = {
     name: "",
     email: "",
@@ -13,6 +16,7 @@ const TestForm: React.FC = () => {
 
   const handleSubmit = (values: UserType) => {
     console.log("Form submitted with values:", values);
+    props.addUser(values.email, values.name)
   };
 
   return (

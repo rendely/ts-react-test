@@ -1,8 +1,9 @@
 
 
 import React from "react";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import {UserType} from '../types';
+import * as Yup from "yup";
 
 //Instanciate props interface for TestForm
 interface TestFormProps {
@@ -16,6 +17,12 @@ const TestForm: React.FC<TestFormProps> = props => {
     email: "",
   };
 
+  //Validate form values using yup
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+  });
+
   const handleSubmit = (values: UserType) => {
     console.log("Form submitted with values:", values);
     props.addUser(values.email, values.name)
@@ -24,7 +31,7 @@ const TestForm: React.FC<TestFormProps> = props => {
   return (
     <div>
       <h2>New User Form</h2>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik  initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
         <Form>
           <div>
             <label htmlFor="name">Name:</label>
